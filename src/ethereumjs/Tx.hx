@@ -4,6 +4,8 @@ typedef SignedTransaction = Dynamic;
 
 #if hxnodejs
 @:jsRequire("ethereumjs-tx")
+#else
+@:native('EthJS.Tx')
 #end
 extern class Tx{
 	
