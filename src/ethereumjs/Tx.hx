@@ -2,7 +2,9 @@ package ethereumjs;
 
 typedef SignedTransaction = Dynamic;
 
+#if hxnodejs
 @:jsRequire("ethereumjs-tx")
+#end
 extern class Tx{
 	
 	public var nonce: String;
@@ -13,7 +15,7 @@ extern class Tx{
 	public var data: String;
 
 	public function new(?rawTx : Dynamic); //TODO remove DYnamic
-	public function sign(privateKey : js.node.buffer.Buffer) : Void;
+	public function sign(privateKey : Dynamic) : Void; //js.node.buffer.Buffer in case of node
 	public function serialize() : SignedTransaction;
 	public function verifySignature() : Bool;
 }
